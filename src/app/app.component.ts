@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';  
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FormsModule],
+  imports: [CommonModule, FormsModule], 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -15,22 +16,15 @@ export class AppComponent {
   userName: string = "";
   nameError: string = "";
 
-  ngOnInit(): void {
-    this.title = "Yogesh, Hello from BridgeLabz";
-  }
-
-  onClick(event: MouseEvent) {
-    console.log("Image clicked!", event);
-    window.open(this.url, "_blank");
-  }
-
   onInput(event: Event) {
-    console.log("Input changed:", event);
-    const nameRegex = /^[A-Z][a-zA-Z\s]{2,}$/;  // Starts with a capital, min 3 letters
-    if (nameRegex.test(this.userName)) {
-      this.nameError = "";
-    } else {
-      this.nameError = "Name must start with a capital letter and have at least 3 letters!";
-    }
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.userName = inputValue;  
+
+    const nameRegex = /^[A-Z][a-zA-Z\s]{2,}$/;
+    this.nameError = nameRegex.test(this.userName) ? "" : "Name is Incorrect!";
+  }
+
+  onClick(event: Event) {
+    console.log("BridgeLabz logo clicked!", event);
   }
 }
