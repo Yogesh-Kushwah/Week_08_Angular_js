@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angular HelloWorld</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 10px;
-
-            text-align: center;
-            font-family: Arial, sans-serif;
-            color:blue ;
-        }
-    </style>
-</head>
-<body>
-  <div>
-    <h1>{{this.title}}</h1>
-    <img [src]=" ImageURL" alt="Dynamic BridgeLabz logo">
-  </div>
-</body>
-</html>
+<div>
+  <h1>{{this.title}}</h1>
+  <img [src] ="imgUrl" (click)= "onClick($event)" alt = "Hello from bridgeLabz"/>
+</div>
