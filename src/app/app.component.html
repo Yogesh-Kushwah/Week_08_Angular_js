@@ -4,5 +4,6 @@
 </div>
 
 <div>
-  <input [(ngModel)]="userName" placeholder="Enter your name" />
+  <input (input)="onInput($event)" [(ngModel)]="userName" placeholder="Enter your name" />
+  <span class="error-output">{{ nameError }}</span>
 </div>
